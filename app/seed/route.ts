@@ -5,6 +5,12 @@ import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 async function seedUsers() {
+  /**
+   * 启用 UUID 扩展
+   * 作用：PostgreSQL 默认不自带 UUID 生成函数，这个语句用于「如果不存在 uuid-ossp 扩展，就创建它」。
+   * 关键用途：后续表的 id 字段需要用 uuid_generate_v4() 生成随机 UUID，必须依赖这个扩展。
+   * 补充："uuid-ossp" 加双引号是因为扩展名包含短横线，PostgreSQL 中特殊字符 / 大小写敏感的标识符需要用双引号包裹。
+   */
   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
   await sql`
     CREATE TABLE IF NOT EXISTS users (
