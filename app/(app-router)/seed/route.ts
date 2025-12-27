@@ -1,8 +1,6 @@
 import bcrypt from 'bcrypt';
 import postgres from 'postgres';
-import { invoices, customers, revenue, users } from '../(app-router)/lib/placeholder-data';
-
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+import { invoices, customers, revenue, users } from '@/app/(app-router)/lib/placeholder-data''@/const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 async function seedUsers() {
   /**
