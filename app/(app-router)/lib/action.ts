@@ -39,9 +39,6 @@ export async function createInvoice(formData: FormData) {
         VALUES (${customerId}, ${amountInCents}, ${status}, ${date})`;
      } catch(err) {
         console.log(err);
-        return {
-            message: 'Something Wrong: Failed to Create Invoice.',
-        };
      }
     // The /dashboard/invoices path will be revalidated, and fresh data will be fetched from the server.
     revalidatePath('/dashboard/invoices');
