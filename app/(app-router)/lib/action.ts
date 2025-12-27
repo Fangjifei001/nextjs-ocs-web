@@ -61,9 +61,9 @@ export async function updateInvoice(id: string, formData: FormData) {
         WHERE id = ${id}`;
     } catch(err) {
         console.log(err);
-        return {
-            message: 'Something Wrong: Failed to update invoice!'
-        }
+        // return {
+        //     message: 'Something Wrong: Failed to update invoice!'
+        // }
     }
     revalidatePath('/dashboard/invoices');
     redirect('/dashboard/invoices');
