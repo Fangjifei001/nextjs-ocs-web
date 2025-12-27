@@ -1,7 +1,7 @@
 import AcmeLogo from '@/app/(app-router)/ui/acme-logo';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-import styles from '@/app/ui/home.module.css';
+import styles from '@/app/(app-router)/ui/home.module.css';
 import Image  from 'next/image';
 
 export default function Page() {
